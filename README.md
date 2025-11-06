@@ -188,7 +188,7 @@ The application will be available at `http://127.0.0.1:5000`
 
    python3 -m venv .venv  "tagline": "Pure electric gran turismo.",
 
-   source .venv/bin/activate  "blurb": "Lorem ipsum dolor sit amet...",
+   source .venv/bin/activate  "blurb": "Experience the future of electric mobility...",  
 
    ```  "hero_image": "https://picsum.photos/seed/arc/1600/900",
 
@@ -310,8 +310,7 @@ The application will be available at `http://127.0.0.1:5000`
 
 
 
-### 4. Sustainability- All text content uses lorem ipsum placeholders
-
+### 4. Sustainability  
 - Environmental commitments- Replace placeholder images with actual vehicle photography
 
 - Circular materials usage- This is a **brand showcase**, not an e-commerce site - intentionally no prices or cart
@@ -434,3 +433,5 @@ To accelerate the transition to sustainable transportation through innovative de
 ---
 
 **Built with ⚡ by the Nexus Motors Digital Team**
+
+
