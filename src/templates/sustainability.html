@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}Sustainability — Nexus Motors{% endblock %}
+{% block content %}
+<section class="relative overflow-hidden rounded-2xl shadow-soft p-10 bg-gradient-to-br from-emerald-500/10 to-slate-800/10">
+  <div>
+    <h1 class="text-4xl font-semibold mb-4">{{ sus.hero.headline }}</h1>
+    <p class="text-slate-300 text-lg leading-relaxed max-w-3xl">{{ sus.hero.subhead }}</p>
+  </div>
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-8 mb-8">
+    <h2 class="text-2xl font-semibold mb-4">Our Environmental Commitment</h2>
+    <p class="text-slate-300 leading-relaxed mb-4">
+      At Nexus Motors, sustainability isn't an afterthought—it's fundamental to everything we do. From the materials we source to the energy that powers our facilities, we're committed to minimizing our environmental impact while delivering exceptional vehicles.
+    </p>
+    <p class="text-slate-300 leading-relaxed">
+      We believe that electric vehicles are just the beginning. True sustainability requires a holistic approach that considers the entire lifecycle of our products, from raw material extraction to end-of-life recycling.
+    </p>
+  </div>
+
+  <h2 class="text-2xl font-semibold">Circular Materials</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    {% for m in sus.circular_materials %}
+    <div class="rounded-2xl bg-white/5 border border-white/10 p-6 text-center">
+      <svg viewBox="0 0 36 36" class="mx-auto w-24 h-24">
+        <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" opacity="0.15" stroke-width="4"></circle>
+        <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-width="4"
+          stroke-dasharray="{{ m.percent }}, 100" transform="rotate(-90 18 18)"></circle>
+      </svg>
+      <p class="mt-4 text-xl font-medium">{{ m.percent }}%</p>
+      <p class="text-slate-300">{{ m.label }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+    <h2 class="text-2xl font-semibold mb-6">Clean Manufacturing</h2>
+    <p class="text-slate-300 leading-relaxed mb-4">
+      Our manufacturing facilities are designed from the ground up to minimize environmental impact. We've invested heavily in renewable energy, water conservation, and waste reduction technologies to ensure that every vehicle we produce has the smallest possible carbon footprint.
+    </p>
+    <ul class="mt-4 text-slate-300 space-y-2 list-disc list-inside">
+      {% for note in sus.manufacturing.notes %}<li>{{ note }}</li>{% endfor %}
+    </ul>
+    <div class="mt-6 rounded-xl bg-white/5 border border-white/10 p-4">
+      <p class="text-slate-300 mb-2"><strong>Plant:</strong> {{ sus.manufacturing.plants[0].name }} ({{ sus.manufacturing.plants[0].region }})</p>
+      <p class="text-slate-300 mb-2"><strong>Renewables:</strong> {{ sus.manufacturing.plants[0].renewables_percent }}%</p>
+      <p class="text-slate-300"><strong>Water saved:</strong> {{ sus.manufacturing.plants[0].water_saved_m3 }} m³ annually</p>
+    </div>
+  </div>
+</section>
+
+<section class="mt-12">
+  <h2 class="text-2xl font-semibold mb-4">Lifecycle Thinking</h2>
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6 mb-6">
+    <p class="text-slate-300 leading-relaxed">
+      We analyze the environmental impact of our vehicles across their entire lifecycle, from material extraction through manufacturing, use, and eventual recycling. This comprehensive approach helps us identify opportunities for improvement at every stage.
+    </p>
+  </div>
+  <ol class="relative border-l border-white/10 ml-4 space-y-6">
+    {% for step in sus.lifecycle %}
+    <li class="pl-6">
+      <span class="absolute -left-1.5 mt-1 w-3 h-3 rounded-full bg-emerald-400"></span>
+      <h3 class="font-medium">{{ step }}</h3>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+    <h2 class="text-2xl font-semibold mb-4">Battery Second Life & Recycling</h2>
+    <p class="text-slate-300 leading-relaxed mb-4">{{ sus.second_life.policy }}</p>
+    <p class="text-slate-300 leading-relaxed">
+      When batteries eventually reach end-of-life, we recover over 95% of the materials through our advanced recycling partners. Critical minerals like lithium, nickel, and cobalt are reintroduced into the supply chain, reducing the need for new mining operations and closing the loop on battery production.
+    </p>
+  </div>
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+    <h2 class="text-2xl font-semibold mb-4">Ethical Sourcing</h2>
+    <p class="text-slate-300 leading-relaxed mb-4">
+      We hold ourselves and our suppliers to the highest ethical standards. Our comprehensive sourcing program ensures that materials are obtained responsibly, with respect for human rights, environmental protection, and local communities.
+    </p>
+    <ul class="mt-4 text-slate-300 space-y-2 list-disc list-inside">
+      {% for p in sus.ethical_sourcing.principles %}<li>{{ p }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="mt-12">
+  <h2 class="text-2xl font-semibold mb-6">Roadmap & Commitments</h2>
+  <div class="rounded-2xl bg-gradient-to-br from-emerald-500/10 to-slate-800/10 border border-white/10 p-6 mb-6">
+    <p class="text-slate-300 leading-relaxed">
+      Our sustainability roadmap sets ambitious but achievable targets for reducing environmental impact across our operations. These commitments are regularly reviewed and updated as we develop new technologies and processes.
+    </p>
+  </div>
+  <ol class="relative border-l border-white/10 ml-4 space-y-6">
+    {% for r in sus.roadmap %}
+    <li class="pl-6">
+      <span class="absolute -left-1.5 mt-1 w-3 h-3 rounded-full bg-emerald-400"></span>
+      <h3 class="font-medium text-lg">{{ r.year }}</h3>
+      <p class="text-slate-300 mt-1">{{ r.target }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="mt-12">
+  <h2 class="text-2xl font-semibold mb-4">Transparency & Accountability</h2>
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6 mb-6">
+    <p class="text-slate-300 leading-relaxed mb-4">
+      We believe in complete transparency when it comes to our environmental performance. Our annual sustainability reports provide detailed information about our progress, challenges, and future plans.
+    </p>
+    <p class="text-slate-300 leading-relaxed">
+      Third-party audits and certifications ensure that our claims are verified and our processes meet international environmental standards. We welcome scrutiny and use feedback to continuously improve our sustainability practices.
+    </p>
+  </div>
+  
+  <h3 class="text-xl font-semibold mb-4">Reports & Audits</h3>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for rep in sus.reports %}
+    <a href="{{ rep.href }}" class="rounded-2xl bg-white/5 border border-white/10 p-6 hover:shadow-soft transition block">
+      <h4 class="font-medium">{{ rep.title }}</h4>
+      <p class="text-slate-300 mt-2 text-sm">{{ rep.summary }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-gradient-to-br from-emerald-500/10 to-slate-800/10 border border-white/10 p-8 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Join Us in Building a Sustainable Future</h2>
+    <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto">
+      Every Nexus vehicle represents a step toward a cleaner, more sustainable future. By choosing electric mobility and supporting responsible manufacturing, you're part of the solution. Together, we can accelerate the transition to sustainable transportation.
+    </p>
+  </div>
+</section>
+{% endblock %}

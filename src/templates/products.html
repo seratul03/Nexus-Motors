@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+
+{% block title %}{{ site_name }} - Electric Mobility Reimagined{% endblock %}
+
+{% block meta_description %}Discover the Nexus Motors range - innovative electric vehicles that combine stunning design, cutting-edge technology, and sustainable performance{% endblock %}
+
+{% block content %}
+<section class="relative overflow-hidden min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900/30 to-gray-900">
+    <div class="absolute inset-0">
+        <img 
+            src="https://picsum.photos/seed/nexushero/1920/1080" 
+            alt="Nexus Motors"
+            class="w-full h-full object-cover opacity-30"
+            loading="eager"
+        />
+    </div>
+    <div class="gradient-blob w-96 h-96 bg-purple-600 top-0 left-0"></div>
+    <div class="gradient-blob w-80 h-80 bg-blue-600 bottom-20 right-20"></div>
+    <div class="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight">
+            The Future of
+            <br />
+            <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Electric Mobility
+            </span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pioneering sustainable transportation through breathtaking design and uncompromising performance.
+        </p>
+        <a 
+            href="#models" 
+            class="inline-flex items-center px-10 py-5 rounded-2xl bg-white text-gray-900 font-bold text-lg shadow-soft-lg hover:shadow-xl transition-all hover:scale-105"
+        >
+            Explore Our Range
+            <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+        </a>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+    </div>
+    
+</section>
+<section id="models" class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    
+    <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">Our Range</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Each vehicle represents our commitment to excellence, innovation, and sustainability.
+        </p>
+    </div>
+    <div class="masonry">
+        {% for model in models %}
+            {% include 'partial_model_teaser.html' %}
+        {% endfor %}
+    </div>
+    
+</section>
+{% for model in models %}
+<section id="model-{{ model.slug }}" class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 border-t border-gray-200 dark:border-gray-800">
+    
+    <div class="alternate-section {% if loop.index is even %}reverse{% endif %} reveal">
+        <div class="relative">
+            <div class="relative rounded-2xl overflow-hidden shadow-soft-lg">
+                <img 
+                    src="{{ model.hero_image }}" 
+                    alt="{{ model.name }}"
+                    class="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
+        </div>
+        <div class="flex flex-col justify-center">
+            
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">
+                {{ model.name }}
+            </h2>
+            
+            <p class="text-xl md:text-2xl text-brand-600 dark:text-brand-400 mb-6 font-semibold">
+                {{ model.tagline }}
+            </p>
+            
+            <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                {{ model.blurb }}
+            </p>
+            <div class="p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 mb-8">
+                <h3 class="font-bold text-lg mb-4">Key Specifications</h3>
+                <dl class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <dt class="text-gray-600 dark:text-gray-400">Powertrain</dt>
+                        <dd class="font-semibold">{{ model.specs.powertrain }}</dd>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <dt class="text-gray-600 dark:text-gray-400">Range (WLTP)</dt>
+                        <dd class="font-semibold">{{ model.specs.range_wltp }}</dd>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <dt class="text-gray-600 dark:text-gray-400">0-100 km/h</dt>
+                        <dd class="font-semibold">{{ model.specs.acceleration_0_100 }}</dd>
+                    </div>
+                    {% if model.specs.top_speed %}
+                    <div class="flex items-center justify-between">
+                        <dt class="text-gray-600 dark:text-gray-400">Top Speed</dt>
+                        <dd class="font-semibold">{{ model.specs.top_speed }}</dd>
+                    </div>
+                    {% endif %}
+                    {% if model.specs.battery %}
+                    <div class="flex items-center justify-between">
+                        <dt class="text-gray-600 dark:text-gray-400">Battery</dt>
+                        <dd class="font-semibold">{{ model.specs.battery }}</dd>
+                    </div>
+                    {% endif %}
+                </dl>
+            </div>
+            <div class="flex flex-wrap gap-3 mb-6">
+                {% for pillar in model.pillars %}
+                <span class="px-4 py-2 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 font-semibold text-sm">
+                    {{ pillar }}
+                </span>
+                {% endfor %}
+            </div>
+            
+            <a href="#models" class="text-brand-600 dark:text-brand-400 hover:underline font-semibold inline-flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                </svg>
+                Back to range
+            </a>
+            
+        </div>
+        
+    </div>
+    
+</section>
+{% endfor %}
+<section id="technology" class="bg-gray-100 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700 py-24 md:py-32">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">Technology & Design</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Lorem ipsum dolor sit amet. Where engineering excellence meets artistic vision.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="reveal">
+                <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-soft border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">Technology</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. Our proprietary battery technology, intelligent motor control systems, and advanced safety features set new industry benchmarks.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Next-generation battery architecture</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Adaptive motor control systems</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>AI-powered software platform</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Comprehensive active safety suite</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="design" class="reveal">
+                <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-soft border border-gray-200 dark:border-gray-700">
+                    <div class="w-16 h-16 rounded-2xl bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur. Our design philosophy celebrates purity of form, precision of proportion, and the emotional connection between driver and machine.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Aerodynamic efficiency through form</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Sustainable materials throughout</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Minimalist interior philosophy</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-brand-600 dark:text-brand-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span>Handcrafted attention to detail</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
+<section id="sustainability" class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    
+    <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">Sustainability</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Lorem ipsum dolor sit amet. Our commitment extends beyond zero-emissions driving to encompass the entire vehicle lifecycle.
+        </p>
+    </div>
+    
+    <div class="mb-20 reveal">
+        <div class="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border border-green-200 dark:border-green-800">
+            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                Ut enim ad minim veniam, quis nostrud exercitation. From responsibly sourced materials and renewable manufacturing energy to comprehensive recycling programs, we're reimagining what sustainable mobility means for future generations.
+            </p>
+        </div>
+    </div>
+    <div class="reveal">
+        <h3 class="text-2xl md:text-3xl font-bold mb-12">Our Journey</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4 class="font-bold text-xl mb-2">2022 — Foundation</h4>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Lorem ipsum dolor sit amet. Nexus Motors established with a mission to accelerate sustainable transportation.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="font-bold text-xl mb-2">2023 — First Prototype</h4>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Consectetur adipiscing elit. Arc prototype unveiled at international auto show, garnering critical acclaim.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="font-bold text-xl mb-2">2024 — Production Begins</h4>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Sed do eiusmod tempor. First production vehicles roll off carbon-neutral assembly line.
+                </p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="font-bold text-xl mb-2">2025 — Global Expansion</h4>
+                <p class="text-gray-600 dark:text-gray-400">
+                    Incididunt ut labore. Expanding to new markets while maintaining commitment to sustainability and innovation.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<section id="press" class="bg-gray-100 dark:bg-gray-800 border-y border-gray-200 dark:border-gray-700 py-24 md:py-32">
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6">Press & Recognition</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="reveal p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-soft border border-gray-200 dark:border-gray-700">
+                <p class="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nexus Motors represents a bold new vision for electric mobility."
+                </p>
+                <p class="font-semibold text-brand-600 dark:text-brand-400">— Automotive Weekly</p>
+            </div>
+            <div class="reveal p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-soft border border-gray-200 dark:border-gray-700">
+                <p class="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
+                    "Sed do eiusmod tempor incididunt ut labore. Stunning design meets uncompromising performance."
+                </p>
+                <p class="font-semibold text-brand-600 dark:text-brand-400">— Electric Vehicle Magazine</p>
+            </div>
+        </div>
+        <div class="reveal">
+            <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center">Awards</h3>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mb-3 mx-auto">
+                        <svg class="w-10 h-10 text-yellow-600 dark:text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="font-semibold">Car of the Year</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">2024</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-3 mx-auto">
+                        <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="font-semibold">Green Innovation Award</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">2024</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-3 mx-auto">
+                        <svg class="w-10 h-10 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <p class="font-semibold">Design Excellence</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">2023</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+    
+    <div class="text-center mb-16 reveal">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6">Gallery</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400">
+            Experience the beauty of Nexus Motors through our lens
+        </p>
+    </div>
+    <div class="masonry">
+        {% set gallery_images = [] %}
+        {% for model in models %}
+            {% for img in model.gallery[:1] %}
+                {% set _ = gallery_images.append((img, model.name)) %}
+            {% endfor %}
+        {% endfor %}
+        
+        {% for img, model_name in gallery_images[:3] %}
+        <div class="mb-4 reveal h-80">
+            <img 
+                src="{{ img }}" 
+                alt="{{ model_name }} gallery image"
+                class="gallery-image w-full h-full object-cover rounded-2xl cursor-pointer hover:opacity-90 transition-opacity shadow-soft hover:shadow-soft-lg"
+                loading="lazy"
+                decoding="async"
+                tabindex="0"
+                role="button"
+                aria-label="Open image in lightbox"
+            />
+        </div>
+        {% endfor %}
+    </div>
+    
+</section>
+
+{% endblock %}

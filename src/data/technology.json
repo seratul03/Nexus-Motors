@@ -1,0 +1,118 @@
+{
+  "hero": {
+    "headline": "Engineering without compromise.",
+    "subhead": "From silicon-carbide inverters to structural battery packs, every Nexus system is designed to waste less, last longer, and feel effortless on the road.",
+    "hero_image": "/static/technology img/head.jpg",
+    "hero_alt": "Nexus performance coupe in studio lighting showcasing sleek silhouette."
+  },
+  "powertrain": [
+    {
+      "title": "Dual-Motor AWD",
+      "points": [
+        "Instant torque with millisecond torque split front/rear",
+        "Motor maps adapt to road temperature and tire load",
+        "High-efficiency windings reduce copper losses at cruise"
+      ],
+      "img": "/static/technology img/dual motor awd.jpg",
+      "alt": "Exploded view of Nexus e-axle and reduction gear"
+    },
+    {
+      "title": "Silicon-Carbide Inverters",
+      "points": [
+        "SiC MOSFETs cut switching losses at high current",
+        "Liquid-cooled baseplate maintains output under repeated launches",
+        "Low-loss highway mode extends range"
+      ],
+      "img": "/static/technology img/silicon carbide inverters.png",
+      "alt": "Liquid-cooled silicon-carbide inverter module"
+    },
+    {
+      "title": "Active Torque Vectoring",
+      "points": [
+        "Per-wheel torque commands stabilize the car mid-corner",
+        "Motors vector first, brakes second to keep rotors cool",
+        "Snow / Track / Auto modes tune yaw response"
+      ],
+      "img": "/static/technology img/active torque.jpg",
+      "alt": "Chassis diagram showing left/right torque distribution"
+    },
+    {
+      "title": "Liquid Thermal Circuit",
+      "points": [
+        "Single loop cools motors, inverters, and battery pack",
+        "Heat scavenged for cabin and battery pre-conditioning",
+        "High-flow path unlocks sustained track performance"
+      ],
+      "img": "/static/technology img/liquid thermal.jpg",
+      "alt": "Integrated thermal loop schematic with heat exchangers"
+    }
+  ],
+  "battery": {
+    "chemistry": "High-nickel NMC (low-cobalt strategy)",
+    "pack_architecture": "Structural pack bonded to the floor",
+    "wltp_range_km": "Up to 600",
+    "fast_charge_10_80_min": "≈18",
+    "charging_curve_points": [10, 30, 55, 80],
+    "image": "/static/technology img/battery & charging.jpg",
+    "alt": "Structural battery pack integrated into vehicle floor",
+    "notes": [
+      "10–30%: constant-current fast ramp",
+      "30–55%: taper begins to protect cells",
+      "55–80%: temperature-aware taper for longevity"
+    ]
+  },
+  "software": {
+    "ota_philosophy": "Vehicles receive feature updates several times a year; staged rollouts with owner approval.",
+    "highlights": [
+      "Efficiency optimizer adds up to ~5% highway range in calm weather",
+      "New drive profile \"Balance+\" softens low-speed torque",
+      "UI refinements: clearer energy graph, larger lane guidance"
+    ],
+    "pipeline_image": "/static/technology img/software and ota.jpg",
+    "pipeline_alt": "Over-the-air update pipeline from vehicle to cloud and back"
+  },
+  "safety": {
+    "sensors": "8 cameras, 5 radar, 12 ultrasonics",
+    "perception": "Multi-sensor fusion builds a 360° model at 20 Hz",
+    "planning": "Predictive pathing anticipates merges and cut-ins",
+    "control": "Redundant braking and steering paths; fail-safe degraded mode",
+    "crash": "Front/rear crush boxes, battery firewall, tuned small-overlap load paths",
+    "image": "/static/technology img/safety of driver.jpg",
+    "alt": "Vehicle sensor coverage and crash load distribution"
+  },
+  "materials_nvh": {
+    "points": [
+      "Mixed aluminum / ultra-high-strength steel for stiff, light structure",
+      "Reclaimed carbon panels in low-volume trims",
+      "Laminated side glass and dual motor isolators for quiet cabins"
+    ],
+    "image": "/static/technology img/materials.jpg",
+    "alt": "Aluminum-steel body structure with strategic reinforcements"
+  },
+  "lab_notes": [
+    {
+      "title": "Thermal Derating Study",
+      "summary": "Stable inverter temps preserve peak power for repeated overtakes on mountain passes.",
+      "image": "https://picsum.photos/seed/lab1/1000/700",
+      "alt": "Cooling performance chart from dyno testing"
+    },
+    {
+      "title": "Ride Tuning Method",
+      "summary": "Frequency-domain targets remove harshness without float on long-wheelbase vehicles.",
+      "image": "https://picsum.photos/seed/lab2/1000/700",
+      "alt": "Damper tuning rig with accelerometer traces"
+    },
+    {
+      "title": "Cell Aging vs. Fast-Charge",
+      "summary": "Pre-conditioning cuts lithium plating risk during high-power sessions in winter.",
+      "image": "https://picsum.photos/seed/lab3/1000/700",
+      "alt": "Battery test bench with environmental chamber"
+    }
+  ],
+  "gallery": [
+    { "src": "https://picsum.photos/seed/close1/1200/1600", "alt": "Close-up of SiC inverter power stage" },
+    { "src": "https://picsum.photos/seed/close2/1400/1000", "alt": "Cooling plate with microchannels" },
+    { "src": "https://picsum.photos/seed/close3/1000/1400", "alt": "Sensor module and harness routing" },
+    { "src": "https://picsum.photos/seed/close4/1600/1200", "alt": "Structural pack section with crash rails" }
+  ]
+}

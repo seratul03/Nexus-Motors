@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "headline": "Responsibility, engineered in.",
+    "subhead": "We measure our impact from raw materials to end-of-life, and design for repair, reuse, and recycling.",
+    "image": "https://picsum.photos/seed/green-hero/1600/900",
+    "alt": "Assembly hall powered by rooftop solar arrays"
+  },
+  "circular_materials": [
+    { "label": "Recycled aluminum (body shell target)", "percent": 70 },
+    { "label": "Recycled polymers (interior & underbody)", "percent": 45 },
+    { "label": "Bio-based textiles (selected trims)", "percent": 35 }
+  ],
+  "manufacturing": {
+    "plants": [
+      { "name": "Aurora Plant", "region": "EU", "renewables_percent": 80, "water_saved_m3": 120000 }
+    ],
+    "notes": [
+      "Closed-loop paint shop reduces freshwater draw",
+      "Press scrap returned to caster; pallets reused internally"
+    ],
+    "image": "https://picsum.photos/seed/plant/1300/900",
+    "alt": "Factory with rooftop solar and skylights"
+  },
+  "lifecycle": ["Raw Materials", "Manufacturing", "Logistics", "Use Phase", "End-of-life"],
+  "second_life": {
+    "policy": "Packs above 70% health are redeployed for stationary storage before recycling.",
+    "image": "https://picsum.photos/seed/secondlife/1200/800",
+    "alt": "Battery modules used in stationary storage cabinets"
+  },
+  "ethical_sourcing": {
+    "principles": [
+      "Traceability audits prioritized for high-risk materials",
+      "Supplier Code covering labor, environment, and governance",
+      "Third-party assessments with corrective-action tracking"
+    ],
+    "image": "https://picsum.photos/seed/sourcing/1200/800",
+    "alt": "Global sourcing regions with traceability focus"
+  },
+  "roadmap": [
+    { "year": 2025, "target": "75% renewable electricity in owned operations" },
+    { "year": 2027, "target": "50% recycled aluminum content across all models" },
+    { "year": 2030, "target": "Net-zero Scope 1 & 2; reduced Scope 3 intensity" }
+  ],
+  "reports": [
+    { "title": "Sustainability Update 2025", "summary": "Progress on energy sourcing, materials circularity, and logistics routing.", "href": "#" }
+  ]
+}

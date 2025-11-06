@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}Technology — Nexus Motors{% endblock %}
+{% block content %}
+<section class="relative overflow-hidden rounded-2xl shadow-soft p-10 bg-gradient-to-br from-purple-500/10 to-slate-800/10">
+  <div class="grid lg:grid-cols-2 gap-8 items-center">
+    <div>
+      <h1 class="text-4xl font-semibold">{{ tech.hero.headline }}</h1>
+      <p class="mt-4 text-slate-300">{{ tech.hero.subhead }}</p>
+    </div>
+    <img src="{{ tech.hero.hero_image }}" alt="{{ tech.hero.hero_alt }}" class="rounded-2xl w-full h-72 object-cover lg:h-80" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<section class="mt-12">
+  <h2 class="text-2xl font-semibold">Powertrain Stack</h2>
+  <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mt-6">
+    {% for c in tech.powertrain %}
+    <article class="rounded-2xl bg-white/5 border border-white/10 p-5 hover:shadow-soft transition will-change-transform">
+      <img src="{{ c.img }}" alt="{{ c.alt }}" class="rounded-xl w-full h-48 object-cover mb-4" loading="lazy" decoding="async">
+      <h3 class="text-lg font-medium">{{ c.title }}</h3>
+      <ul class="mt-2 space-y-1 list-disc list-inside text-slate-300">
+        {% for pt in c.points %}<li>{{ pt }}</li>{% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="mt-12 grid lg:grid-cols-2 gap-8 items-start">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+    <h2 class="text-2xl font-semibold">Battery & Charging</h2>
+    <p class="mt-4 text-slate-300"><strong>Chemistry:</strong> {{ tech.battery.chemistry }}</p>
+    <p class="text-slate-300"><strong>Pack:</strong> {{ tech.battery.pack_architecture }}</p>
+    <p class="text-slate-300"><strong>Estimated range:</strong> {{ tech.battery.wltp_range_km }} km</p>
+    <p class="text-slate-300"><strong>Fast charge:</strong> {{ tech.battery.fast_charge_10_80_min }} min (10–80%)</p>
+    <ul class="mt-4 text-slate-300 list-disc list-inside">
+      {% for n in tech.battery.notes %}<li>{{ n }}</li>{% endfor %}
+    </ul>
+    <div class="mt-6">
+      <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+        <div class="h-full bg-brand" style="width: 80%"></div>
+      </div>
+      <div class="flex justify-between text-xs text-slate-400 mt-2">
+        {% for p in tech.battery.charging_curve_points %}<span>{{ p }}%</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+  <img src="{{ tech.battery.image }}" alt="{{ tech.battery.alt }}" class="rounded-2xl w-full h-80 object-cover" loading="lazy" decoding="async">
+</section>
+
+<section class="mt-12 grid lg:grid-cols-2 gap-8 items-start">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6 order-2 lg:order-1">
+    <h2 class="text-2xl font-semibold">Software & OTA</h2>
+    <p class="mt-4 text-slate-300">{{ tech.software.ota_philosophy }}</p>
+    <ul class="mt-4 text-slate-300 list-disc list-inside">
+      {% for h in tech.software.highlights %}<li>{{ h }}</li>{% endfor %}
+    </ul>
+  </div>
+  <img src="{{ tech.software.pipeline_image }}" alt="{{ tech.software.pipeline_alt }}" class="rounded-2xl w-full h-80 object-cover order-1 lg:order-2" loading="lazy" decoding="async">
+</section>
+
+<section class="mt-12 grid lg:grid-cols-2 gap-8 items-start">
+  <img src="{{ tech.safety.image }}" alt="{{ tech.safety.alt }}" class="rounded-2xl w-full h-80 object-cover" loading="lazy" decoding="async">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+    <h2 class="text-2xl font-semibold">Safety & Driver Assistance</h2>
+    <ul class="mt-4 text-slate-300 space-y-1">
+      <li><strong>Sensors:</strong> {{ tech.safety.sensors }}</li>
+      <li><strong>Perception:</strong> {{ tech.safety.perception }}</li>
+      <li><strong>Planning:</strong> {{ tech.safety.planning }}</li>
+      <li><strong>Control:</strong> {{ tech.safety.control }}</li>
+      <li><strong>Crash structure:</strong> {{ tech.safety.crash }}</li>
+    </ul>
+  </div>
+</section>
+
+<section class="mt-12 grid lg:grid-cols-2 gap-8 items-start">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+    <h2 class="text-2xl font-semibold">Materials & NVH</h2>
+    <ul class="mt-4 text-slate-300 list-disc list-inside">
+      {% for p in tech.materials_nvh.points %}<li>{{ p }}</li>{% endfor %}
+    </ul>
+  </div>
+  <img src="{{ tech.materials_nvh.image }}" alt="{{ tech.materials_nvh.alt }}" class="rounded-2xl w-full h-80 object-cover" loading="lazy" decoding="async">
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-white/5 border border-white/10 p-8">
+    <h2 class="text-2xl font-semibold mb-6">Engineering Philosophy</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-lg font-medium text-brand-400 mb-3">Performance Through Efficiency</h3>
+        <p class="text-slate-300 leading-relaxed">
+          At Nexus Motors, we believe true performance isn't just about raw power—it's about intelligent energy management. Our integrated approach to thermal management, aerodynamics, and weight distribution ensures that every kilowatt-hour delivers maximum driving pleasure while extending range.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-lg font-medium text-brand-400 mb-3">Future-Proof Design</h3>
+        <p class="text-slate-300 leading-relaxed">
+          Every Nexus vehicle is built with tomorrow in mind. Our modular architecture and over-the-air update capability mean your vehicle continuously evolves, gaining new features and optimizations throughout its lifetime. This approach reduces waste and ensures lasting value.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-12">
+  <div class="rounded-2xl bg-gradient-to-br from-brand-500/10 to-purple-500/10 border border-white/10 p-8">
+    <h2 class="text-2xl font-semibold mb-4">Innovation in Every Detail</h2>
+    <p class="text-slate-300 leading-relaxed mb-6">
+      Our commitment to innovation extends beyond the powertrain. From advanced driver assistance systems that learn your driving style to predictive maintenance that schedules service before issues arise, Nexus vehicles leverage cutting-edge technology to deliver a superior ownership experience.
+    </p>
+    <div class="grid sm:grid-cols-3 gap-6 mt-8">
+      <div class="text-center">
+        <div class="text-3xl font-bold text-brand-400 mb-2">99.7%</div>
+        <p class="text-sm text-slate-400">System uptime reliability</p>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-brand-400 mb-2">500+</div>
+        <p class="text-sm text-slate-400">Patents filed worldwide</p>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-brand-400 mb-2">24/7</div>
+        <p class="text-sm text-slate-400">Connected vehicle support</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

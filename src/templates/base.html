@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Nexus Motors - Pioneering the future of electric mobility with design, performance, and sustainability{% endblock %}">
+    <meta name="theme-color" content="#7c3aed">
+    
+    <title>{% block title %}{{ site_name }} - Electric Mobility Reimagined{% endblock %}</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'media',
+        theme: {
+          extend: {
+            colors: {
+              brand: { 
+                DEFAULT: '#7c3aed',
+                50: '#faf5ff',
+                100: '#f3e8ff',
+                200: '#e9d5ff',
+                300: '#d8b4fe',
+                400: '#c084fc',
+                500: '#a855f7',
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95'
+              }
+            },
+            boxShadow: {
+              soft: '0 10px 30px rgba(0,0,0,0.12)',
+              'soft-lg': '0 20px 60px rgba(0,0,0,0.15)'
+            },
+            borderRadius: {
+              '2xl': '1.25rem'
+            }
+          }
+        }
+      }
+    </script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globals.css') }}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased">
+    
+    <header class="sticky top-0 z-50 bg-slate-950/60 backdrop-blur border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                
+                <a href="{{ url_for('products') }}" class="font-semibold tracking-wide text-slate-100 hover:opacity-80 transition-opacity">
+                    {{ site_name }}
+                </a>
+                
+                <nav class="flex items-center gap-6 text-sm" role="navigation" aria-label="Main navigation">
+                    <a href="{{ url_for('products') }}" class="text-slate-100 hover:opacity-80 transition-opacity">
+                        Models
+                    </a>
+                    <a href="{{ url_for('about') }}" class="text-slate-100 hover:opacity-80 transition-opacity">
+                        About
+                    </a>
+                    <a href="{{ url_for('technology') }}" class="text-slate-100 hover:opacity-80 transition-opacity">
+                        Technology
+                    </a>
+                    <a href="{{ url_for('sustainability') }}" class="text-slate-100 hover:opacity-80 transition-opacity">
+                        Sustainability
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main id="page" class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer class="border-t border-white/10 py-8 text-sm text-slate-400">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            © {{ current_year }} {{ site_name }}. All rights reserved.
+        </div>
+    </footer>
+    
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button 
+            id="lightbox-close" 
+            class="lightbox-close"
+            aria-label="Close lightbox"
+        >
+            ×
+        </button>
+        <img 
+            id="lightbox-image" 
+            src="" 
+            alt="" 
+            loading="lazy"
+        />
+    </div>
+    
+    <button 
+        id="back-to-top" 
+        class="back-to-top"
+        aria-label="Back to top"
+    >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    
+    {% block extra_scripts %}{% endblock %}
+    
+</body>
+</html>
+

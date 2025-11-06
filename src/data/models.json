@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "bmw-m8",
+    "name": "BMW M8",
+    "tagline": "Pure electric gran turismo.",
+    "blurb": "The Arc represents our vision of electrified performance without compromise—a seamless fusion of aerodynamic sculpture and cutting-edge powertrain technology.",
+    "hero_image": "/static/images/BMW M8.jpg",
+    "gallery": [
+      "/static/images/BMW M8.jpg"
+    ],
+    "specs": {
+      "powertrain": "Dual-motor AWD",
+      "range_wltp": "600 km",
+      "acceleration_0_100": "3.2 s",
+      "top_speed": "250 km/h",
+      "battery": "105 kWh"
+    },
+    "pillars": ["Design", "Performance", "Sustainability"]
+  },
+  {
+    "slug": "ferrari-laferrari",
+    "name": "Ferrari LaFerrari",
+    "tagline": "Urban intelligence, redefined.",
+    "blurb": "The Nova embodies our commitment to sustainable urban mobility—compact proportions paired with spacious interior architecture and next-generation connectivity.",
+    "hero_image": "/static/images/Ferrari Laferrari.jpg",
+    "gallery": [
+      "/static/images/Ferrari Laferrari.jpg"
+    ],
+    "specs": {
+      "powertrain": "Single-motor FWD",
+      "range_wltp": "420 km",
+      "acceleration_0_100": "6.8 s",
+      "top_speed": "160 km/h",
+      "battery": "65 kWh"
+    },
+    "pillars": ["Efficiency", "Technology", "Urban Design"]
+  },
+  {
+    "slug": "ford-shelby-mustang",
+    "name": "Ford Shelby Mustang",
+    "tagline": "Luxury in motion.",
+    "blurb": "Solstice represents the pinnacle of executive electric travel—handcrafted interiors, whisper-quiet cabins, and autonomous driving capabilities that redefine the luxury sedan category.",
+    "hero_image": "/static/images/Ford Shelby Mustang.jpg",
+    "gallery": [
+      "/static/images/Ford Shelby Mustang.jpg"
+    ],
+    "specs": {
+      "powertrain": "Tri-motor AWD",
+      "range_wltp": "650 km",
+      "acceleration_0_100": "3.9 s",
+      "top_speed": "210 km/h",
+      "battery": "115 kWh"
+    },
+    "pillars": ["Luxury", "Autonomy", "Craftsmanship"]
+  },
+  {
+    "slug": "lamborghini-revuelto",
+    "name": "Lamborghini Revuelto",
+    "tagline": "Adventure without limits.",
+    "blurb": "Terra brings electric capability to uncharted territories—intelligent all-wheel drive, adaptive air suspension, and rugged construction for the journey ahead.",
+    "hero_image": "/static/images/Lamborghini Revuelto.jpg",
+    "gallery": [
+      "/static/images/Lamborghini Revuelto.jpg"
+    ],
+    "specs": {
+      "powertrain": "Quad-motor AWD",
+      "range_wltp": "520 km",
+      "acceleration_0_100": "4.5 s",
+      "top_speed": "180 km/h",
+      "battery": "95 kWh"
+    },
+    "pillars": ["Adventure", "Capability", "Durability"]
+  },
+  {
+    "slug": "mercedes-amg-one",
+    "name": "Mercedes AMG ONE",
+    "tagline": "The future, materialized.",
+    "blurb": "Pulse is our concept vehicle—a glimpse into tomorrow's mobility. Autonomous, sustainable, and designed to spark conversation about the role of personal transportation in our collective future.",
+    "hero_image": "/static/images/Mercedes AMG ONE.jpg",
+    "gallery": [
+      "/static/images/Mercedes AMG ONE.jpg"
+    ],
+    "specs": {
+      "powertrain": "Autonomous AWD",
+      "range_wltp": "800 km",
+      "acceleration_0_100": "2.8 s",
+      "top_speed": "280 km/h",
+      "battery": "150 kWh"
+    },
+    "pillars": ["Innovation", "Vision", "Future"]
+  }
+]
